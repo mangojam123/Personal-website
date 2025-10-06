@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naveena Nagaraju - Researcher & Data Scientist</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #2d3748;
+            background: #faf9f7;
+            overflow-x: hidden;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #2d5a5a;
+        }
+        
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f3f0 0%, #e8e4df 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 5% 40px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+        
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            max-width: 1200px;
+            z-index: 1;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .hero-image {
+            position: relative;
+        }
+        
+        .profile-pic {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 8px solid rgba(255,255,255,0.9);
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-text {
+            color: #2d3748;
+            max-width: 600px;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1a1a1a;
+        }
+        
+        .hero-text h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #5a5a5a;
+        }
+        
+        .hero-text p {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            color: #6b6b6b;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: #2d5a5a;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(45, 90, 90, 0.3);
+            background: #3d6a6a;
+        }
+        
+        section {
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #2d5a5a;
+            border-radius: 2px;
+        }
+        
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .card-date {
+            color: #2d5a5a;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .card-subtitle {
+            color: #718096;
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        
+        .card ul {
+            margin-left: 1.5rem;
+            color: #4a5568;
+        }
+        
+        .card li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-card {
+            background: linear-gradient(135deg, #3d6a6a 0%, #2d5a5a 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(45, 90, 90, 0.2);
+        }
+        
+        .skill-card strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+        
+        .skill-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-left: 4px solid #2d5a5a;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .project-card h3 {
+            color: #2d5a5a;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .project-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, #f5f3f0 0%, #e8e4df 100%);
+            color: #2d3748;
+            text-align: center;
+            padding: 60px 5%;
+        }
+        
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .contact-links a {
+            color: #2d5a5a;
+            text-decoration: none;
+            font-size: 1.05rem;
+            padding: 12px 30px;
+            border: 2px solid #2d5a5a;
+            border-radius: 50px;
+            transition: all 0.3s;
+            background: white;
+        }
+        
+        .contact-links a:hover {
+            background: #2d5a5a;
+            color: white;
+        }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.3rem;
+            }
+            
+            .hero-text p {
+                font-size: 1rem;
+            }
+            
+            .profile-pic {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Naveena Nagaraju</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/220" alt="Naveena Nagaraju" class="profile-pic">
+            </div>
+            <div class="hero-text">
+                <h1>Hi, I'm Naveena!</h1>
+                <h2>Researcher & Data Scientist</h2>
+                <p>My research interests are human–computer interaction and cognitive systems, focusing on how people perceive, interpret, and collaborate with intelligent technologies. I'm interested in designing adaptive, context-aware systems that support effective feedback and strengthen understanding between humans and AI.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">University of Pittsburgh</div>
+                <div class="card-date">Aug 2023 – May 2025</div>
+            </div>
+            <div class="card-subtitle">Master of Science in Information Science</div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Kumaraguru College of Technology, Coimbatore, India</div>
+                <div class="card-date">Jul 2018 – Jul 2022</div>
+            </div>
+            <div class="card-subtitle">Bachelor of Technology in Information Technology</div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        
+        <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: #2d5a5a;">Research Experience</h3>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Coordinator & Database Manager, Responsible Data Science</div>
+                <div class="card-date">Mar 2025 – Aug 2025</div>
+            </div>
+            <div class="card-subtitle">University of Pittsburgh</div>
+            <ul>
+                <li>Worked on promoting ethical and transparent AI use in academic and research settings</li>
+                <li>Developed an internal AI policy framework and led an initiative for group-level AI guidelines on data and creative sharing</li>
+                <li>Contributed to the research project "Virtual DataJam Mentor: Refining and Designing Generative AI to Support Question Posing and Data Literacy in High School STEM Education" as one of the authors</li>
+                <li>The paper has been submitted for publication and is currently under review</li>
+                <li>This experience strengthened understanding of human-centered AI governance and responsible technology integration</li>
+            </ul>
+            <p style="margin-top: 10px;"><a href="https://www.linkedin.com/posts/naveena-nag_introducing-a-summer-blog-series-on-rdspitt-activity-7339309642637799425-mrbf" target="_blank" style="color: #2d5a5a; text-decoration: underline;">→ View RDS Blog Series</a></p>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Graduate Researcher, Stewart Lab</div>
+                <div class="card-date">Jan 2025 – Present</div>
+            </div>
+            <div class="card-subtitle">Advisor: Dr. Angela Stewart, University of Pittsburgh</div>
+            <ul>
+                <li>Began this project as part of a graduate research course and continued as a research assistant</li>
+                <li>Studying how teachers perceive and integrate AI into classrooms, with a focus on cultural pedagogy and equity for Black girls</li>
+                <li>Conducting qualitative analysis in NVivo, including thematic coding, pattern identification, and reliability validation</li>
+                <li>Currently co-authoring a manuscript under review on inclusive and culturally responsive AI practices in education</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Research Volunteer, Dr. Yoder's Lab</div>
+                <div class="card-date">Aug 2025 – Present</div>
+            </div>
+            <div class="card-subtitle">University of Pittsburgh</div>
+            <ul>
+                <li>Focus on concept extraction and contextual understanding from educational slides</li>
+                <li>Work on building and fine-tuning a RoBERTa-based language model to identify key concepts and compare its performance with other advanced models</li>
+                <li>This research combines machine learning, educational data, and natural language processing to improve how learning content is represented and retrieved</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Research Volunteer, Surreality Lab</div>
+                <div class="card-date">Sep 2025 – Present</div>
+            </div>
+            <div class="card-subtitle">University of Pittsburgh School of Medicine (UPMC)</div>
+            <ul>
+                <li>Working on projects combining human-computer interaction and predictive modeling</li>
+                <li>Developing a machine learning model to estimate a person's age based on spinal imaging data</li>
+                <li>Responsible for data preparation, model experimentation, and exploring how interactive systems can help visualize and interpret medical predictions more effectively</li>
+                <li>Deepened interest in applying HCI and AI methods to healthcare and human-centered decision support systems</li>
+            </ul>
+        </div>
+        
+        <h3 style="font-size: 1.8rem; margin: 3rem 0 2rem; color: #2d5a5a;">Industry Experience</h3>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Data Analyst, ROCIS Low-Cost Monitoring Project</div>
+                <div class="card-date">Jul 2025 – Present</div>
+            </div>
+            <div class="card-subtitle">Pittsburgh, USA</div>
+            <ul>
+                <li>Processed large-scale Dylos air quality sensor data from community monitoring sites</li>
+                <li>Used Python and R to clean, aggregate, and standardize raw files into validated summary datasets with aligned metadata</li>
+                <li>Automated data pipelines for calculating duration, missing-data ratios, and site-level statistics</li>
+                <li>Developed visualization and QA scripts to assess integrity and extract time-series trends for exposure analysis</li>
+                <li>Gained expertise in environmental data analytics and reproducible research workflows</li>
+            </ul>
+            <p style="margin-top: 10px;"><a href="https://rocis.org/" target="_blank" style="color: #2d5a5a; text-decoration: underline;">→ Visit ROCIS Website</a></p>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Data Analyst, DoWhistle</div>
+                <div class="card-date">May 2024 – Oct 2024</div>
+            </div>
+            <div class="card-subtitle">Cupertino, CA</div>
+            <ul>
+                <li>Developed and deployed scalable data services and APIs to enable real-time business decisions</li>
+                <li>Built predictive optimization models that improved operational efficiency by 17% and reduced allocation errors by 22%</li>
+                <li>Optimized SQL-based ETL pipelines and automated analytics workflows, enhancing processing speed by 40% and data reliability</li>
+            </ul>
+            <p style="margin-top: 10px;"><a href="https://www.dowhistle.com/" target="_blank" style="color: #2d5a5a; text-decoration: underline;">→ Visit DoWhistle Website</a></p>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Artificial Intelligence Intern, Aveon Infotech</div>
+                <div class="card-date">Aug 2022 – Feb 2023</div>
+            </div>
+            <div class="card-subtitle">Coimbatore, India</div>
+            <ul>
+                <li>Performed exploratory data analysis on chatbot interaction logs to identify performance bottlenecks, reducing response time by 25% and increasing user engagement</li>
+                <li>Developed automated Python-based reporting pipelines that cut manual reporting effort by 60% and improved data accuracy</li>
+                <li>Improved data quality and system efficiency through continuous monitoring, optimization, and workflow automation</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="other-experience">
+        <h2 class="section-title">Beyond Data Science and Research</h2>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">IT Help Desk, University of Pittsburgh</div>
+                <div class="card-date">Aug 2023 – Jan 2025</div>
+            </div>
+            <ul>
+                <li>Resolved over 500 IT service requests through TDX Workspace, Salesforce CRM, and Amazon Connect with a 96% resolution rate</li>
+                <li>Provided remote troubleshooting for network, OS, and software issues across Windows and macOS systems</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">PC Consultant, School of Education, University of Pittsburgh</div>
+                <div class="card-date">Jan 2025 – Aug 2025</div>
+            </div>
+            <ul>
+                <li>Delivered on-site technical support for faculty and students, maintaining over 50 classroom systems</li>
+                <li>Managed system updates, hardware diagnostics, and classroom technology using SCCM and Jamf</li>
+                <li>Strengthened technical and organizational skills that continue to inform my research and collaboration practices</li>
+            </ul>
+        </div>
+        
+        <p style="font-size: 1rem; color: #6b6b6b; margin-top: 1.5rem; line-height: 1.8;">Both roles supported me financially during graduate school and taught me how to stay organized, manage priorities, and solve problems efficiently. These experiences have strengthened the practical and interpersonal skills that will serve me well in collaborative PhD research environments.</p>
+    </section>
+    
+    <section id="projects">
+        <h2 class="section-title">Selected Projects</h2>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Speech-Based Sentiment Recognition</h3>
+                <p>Developed a speech emotion recognition model using MFCC, STFT, and Chroma-STFT acoustic features, achieving 73% classification accuracy. Optimized feature selection and preprocessing pipelines to improve robustness across varied speech samples.</p>
+            </div>
+            
+            <div class="project-card">
+                <h3>AI for Early Alzheimer's Detection</h3>
+                <p>Analyzed 2,149 patient records to detect bias in Alzheimer's diagnosis and improve model fairness. Enhanced recall from 0.80 to 0.94 through SMOTE balancing and fairness-aware resampling techniques. Evaluated model performance across demographic subgroups to ensure equitable predictions.</p>
+            </div>
+            
+            <div class="project-card">
+                <h3>Predictive Modeling for Paint Popularity (PPG Industries)</h3>
+                <p>Built machine learning models (Linear Regression, Decision Trees, K-Means) to analyze RGB and HSL color features for product trend forecasting. Generated predictive insights that supported marketing and product design decisions at PPG Industries.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <strong>Programming & Data Engineering</strong>
+                <p>Python (Pandas, NumPy, SciPy), R, SQL (PostgreSQL, MySQL), NoSQL (MongoDB). Experience with ETL pipeline design, data cleaning, and large-scale environmental and educational datasets.</p>
+            </div>
+            
+            <div class="skill-card">
+                <strong>Data Science & Analytics</strong>
+                <p>Statistical modeling, predictive analytics, data visualization, and time-series analysis. Tools: Power BI, Tableau, Matplotlib, Plotly, Scikit-learn.</p>
+            </div>
+            
+            <div class="skill-card">
+                <strong>Artificial Intelligence & Machine Learning</strong>
+                <p>Model development and evaluation for NLP and predictive modeling tasks. Experience with transformer-based architectures (RoBERTa, BERT) and generative AI applications. Knowledge graph construction and embedding-based search (FAISS, Pinecone).</p>
+            </div>
+            
+            <div class="skill-card">
+                <strong>Cloud & Infrastructure</strong>
+                <p>AWS and Azure for data workflows, automation, and deployment. Experience with CI/CD pipelines, API integration, and Terraform-based infrastructure management.</p>
+            </div>
+            
+            <div class="skill-card">
+                <strong>Research & Collaboration Tools</strong>
+                <p>NVivo for qualitative analysis, Git/GitHub for version control, Jupyter and RStudio for reproducible workflows.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="publications">
+        <h2 class="section-title">Publications & Achievements</h2>
+        
+        <div class="card">
+            <h3 style="margin-bottom: 1rem; color: #2d5a5a; font-size: 1.3rem;">Scholarly Work</h3>
+            <ul style="font-size: 1rem; line-height: 1.8;">
+                <li>"Virtual DataJam Mentor: Refining and Designing Generative AI to Support Question Posing and Data Literacy in High School STEM Education" - Responsible Data Science (Submitted, Aug 2025)</li>
+                <li>Stewart, A., <strong>Nagaraju, N.</strong>, et al. "Teachers and AI: Pedagogical Strategies for Equity in Classrooms." (Manuscript under review, 2025)</li>
+                <li>"Analysis of Psychological Engagement of Students in Online Learning" - Kumaraguru College of Technology, supervised by Dr. M. Alamelu, Ph.D, Associate Professor, Information Technology (June 2022)</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3 style="margin-bottom: 1rem; color: #2d5a5a; font-size: 1.3rem;">Awards</h3>
+            <ul style="font-size: 1rem; line-height: 1.8;">
+                <li>🏆 2nd Runner-Up – She Innovates Hackathon 2025, University of Pittsburgh<br>
+                <span style="font-size: 0.95rem; color: #718096;">Top 3 of 90 teams – FinTech Challenge (Cross-border money transfer transparency app)</span></li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3 style="margin-bottom: 1rem; color: #2d5a5a; font-size: 1.3rem;">Research Interests</h3>
+            <p style="font-size: 1rem; line-height: 1.8;">Human–computer interaction and cognitive systems, focusing on how humans perceive, interpret, and collaborate with intelligent technologies. I am interested in designing and studying adaptive systems that can model user cognition and context, support effective feedback loops, and foster mutual understanding between humans and AI in interactive environments.</p>
+        </div>
+    </section>
+    
+    <section id="outside-work">
+        <h2 class="section-title">Outside of Work</h2>
+        
+        <div class="card">
+            <p style="font-size: 1rem; line-height: 1.8;">Outside research, I love hiking, dancing (or at least trying to), and riding motorcycles. Lately, I've been exploring how HCI principles could improve rider safety and navigation, including ideas for smart, interface-integrated helmets and companion apps. It's one of those projects that started from curiosity and something I'd happily chat about over coffee.</p>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <h2>Let's Connect</h2>
+        <p style="font-size: 1.15rem; margin-bottom: 2rem; color: #4b5563; line-height: 1.7;">I'm always open to discussing research opportunities, collaborations, or just having a chat!</p>
+        
+        <div class="contact-links">
+            <a href="mailto:naveenanagaraju13@gmail.com">📧 naveenanagaraju13@gmail.com</a>
+            <a href="https://linkedin.com/in/naveena-nag" target="_blank">💼 linkedin.com/in/naveena-nag</a>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Naveena Nagaraju. All rights reserved.</p>
+    </footer>
+</body>
+</html>
